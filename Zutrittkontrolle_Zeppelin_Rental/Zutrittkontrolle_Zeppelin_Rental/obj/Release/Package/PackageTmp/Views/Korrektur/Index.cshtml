@@ -1,0 +1,65 @@
+﻿@model Zutrittkontrolle_Zeppelin_Rental.Models.JsonFileViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index","Korrektur",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => Model.fileName)
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cRFIDs.ElementAt(0).RFID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cRFIDs.ElementAt(0).EventTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cRFIDs.ElementAt(0).EventSource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cRFIDs.ElementAt(0).EventType)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.cRFIDs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RFID)
+                    @Html.HiddenFor(model => item.RFID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventTime)
+                    @Html.HiddenFor(model => item.EventTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventSource)
+                    @Html.HiddenFor(model => item.EventSource)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventType)
+                    @Html.HiddenFor(model => item.EventType)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RFID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RFID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RFID })
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="form-group">
+            <input type="submit" value="Eingabe korrigieren" class="btn btn-default" />
+            |
+            <span style="color: black">@Html.ActionLink("Zurück zur Liste", "Index", null, new { @class = "my-class" })</span>
+
+    </div>
+
+}

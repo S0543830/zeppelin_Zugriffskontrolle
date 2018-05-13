@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbZugriffskontrolleModelStoreContainer" CdmEntityContainer="dbZugriffskontrolleEntities1">
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="dbZugriffskontrolleModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="eventTime" ColumnName="eventTime" />
+          <ScalarProperty Name="eventSource" ColumnName="eventSource" />
+          <ScalarProperty Name="eventType" ColumnName="eventType" />
+          <ScalarProperty Name="personId" ColumnName="personId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="dbZugriffskontrolleModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="rfid" ColumnName="rfid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
